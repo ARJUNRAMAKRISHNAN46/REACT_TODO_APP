@@ -1,7 +1,11 @@
+const Todo = require('../models/todoModel');
+
 module.exports = {
   getTodo: async (req, res) => {
     try {
       console.log("home page");
+      const todos = await Todo.find();
+      console.log("🚀 ~ getTodo: ~ todos:", todos)
       res.status(200).json({ message: "hello" });
     } catch (error) {
       console.log(error);
